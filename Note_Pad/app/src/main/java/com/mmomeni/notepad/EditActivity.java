@@ -41,7 +41,7 @@ public class EditActivity extends AppCompatActivity {
         titleB.setText(text1);
         descB.setText(text2);
 
-
+/*
         CheckBox cb = new CheckBox(this);
         //LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         //cb.setLayoutParams(p);
@@ -51,6 +51,8 @@ public class EditActivity extends AppCompatActivity {
         cb.setEnabled(true);
         cb.setVisibility(View.VISIBLE);
         layout.addView(cb);
+
+ */
 
     }
 
