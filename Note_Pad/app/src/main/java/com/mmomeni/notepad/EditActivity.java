@@ -76,6 +76,10 @@ public class EditActivity extends AppCompatActivity {
                 saveAndExit(); // This closes the current activity, returning us to the original activity
                 // Toast.makeText(this, "hahaha", Toast.LENGTH_SHORT).show();
                 return true;
+            case R.id.action_settings:
+                Intent intent = new Intent(EditActivity.this, SettingsActivity.class);
+                startActivity(intent);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
