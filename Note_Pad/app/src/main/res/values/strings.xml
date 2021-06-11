@@ -29,8 +29,47 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="display_text">Display Text</string>
     <string name="action_settings">Action Settings</string>
+    <!--<string name="pref_color_key">pref color key</string> -->
+    <string name="change_text_color">Change Text Color</string>
+    <!--<string name="pref_size_default">pref size default</string> -->
+    <!--<string name="pref_size_key">pref size key</string> -->
+    <string name="text_size">Text Size</string>
 
     <!-- NEW STRING RESOURCES TESTING -->
+
+    <!-- Key name for color preference in SharedPreferences -->
+    <string name="pref_color_key" translatable="false">color</string>
+
+    <!-- Label for red color preference -->
+    <string name="pref_color_label_red">Red</string>
+    <!-- Label for blue color preference -->
+    <string name="pref_color_label_blue">Blue</string>
+    <!-- Label for green color preference -->
+    <string name="pref_color_label_green">Green</string>
+    <string name="pref_color_label_black">Black</string>
+    <string name="pref_color_label_cyan">Cyan</string>
+    <string name="pref_color_label_gray">Gray</string>
+    <string name="pref_color_label_magenta">Magenta</string>
+
+    <!-- Value in SharedPreferences for red color option -->
+    <string name="pref_color_red_value" translatable="false">red</string>
+    <!-- Value in SharedPreferences for blue color option -->
+    <string name="pref_color_blue_value" translatable="false">blue</string>
+    <!-- Value in SharedPreferences for green color option -->
+    <string name="pref_color_black_value" translatable="false">black</string>
+    <string name="pref_color_gray_value" translatable="false">gray</string>
+    <string name="pref_color_green_value" translatable="false">green</string>
+    <string name="pref_color_cyan_value" translatable="false">cyan</string>
+    <string name="pref_color_magenta_value" translatable="false">magenta</string>
+
+
+    <!-- Key name for storing size in SharedPreferences -->
+    <string name="pref_size_key" translatable="false">size</string>
+
+    <!-- Default for size preference -->
+    <string name="pref_size_default" translatable="false">15</string>
+
+
 
 
 

@@ -9,4 +9,25 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <string-array name="pref_color_option_labels">
+        <item>@string/pref_color_label_red</item>
+        <item>@string/pref_color_label_black</item>
+        <item>@string/pref_color_label_gray</item>
+        <item>@string/pref_color_label_green</item>
+        <item>@string/pref_color_label_blue</item>
+        <item>@string/pref_color_label_cyan</item>
+        <item>@string/pref_color_label_magenta</item>
+    </string-array>
+
+    <string-array name="pref_color_option_values">
+        <item>@string/pref_color_red_value</item>
+        <item>@string/pref_color_black_value</item>
+        <item>@string/pref_color_gray_value</item>
+        <item>@string/pref_color_green_value</item>
+        <item>@string/pref_color_blue_value</item>
+        <item>@string/pref_color_cyan_value</item>
+        <item>@string/pref_color_magenta_value</item>
+    </string-array>
+
 </resources>
