@@ -26,9 +26,9 @@ import android.widget.TextView;
 public class EditActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private EditText titleB;
     private EditText descB;
-    TextView visibletxt;
-    TextView colortxt;
-    TextView sizetxt;
+    static TextView visibletxt;
+    static TextView colortxt;
+    static TextView sizetxt;
 
     private ConstraintLayout layout;
 
@@ -51,23 +51,9 @@ public class EditActivity extends AppCompatActivity implements SharedPreferences
         titleB.setText(text1);
         descB.setText(text2);
 
-        /* NEW VARIABLES FOR SETTINGS*/
         visibletxt = (TextView)findViewById(R.id.DescBox);
         colortxt = (TextView)findViewById(R.id.DescBox);
         sizetxt = (TextView)findViewById(R.id.DescBox);
-
-/*
-        CheckBox cb = new CheckBox(this);
-        //LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        //cb.setLayoutParams(p);
-        cb.setText("Text");
-        cb.setId(-1);
-        cb.setText("Text");
-        cb.setEnabled(true);
-        cb.setVisibility(View.VISIBLE);
-        layout.addView(cb);
-
- */
         setupSharedPreferences();
 
     }
@@ -75,10 +61,6 @@ public class EditActivity extends AppCompatActivity implements SharedPreferences
     private void setupSharedPreferences() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
-    }
-
-    public void addCheckbox (View v){
-
     }
 
     @Override
@@ -89,13 +71,11 @@ public class EditActivity extends AppCompatActivity implements SharedPreferences
         return true;
     }
 
-
     @Override
     public boolean onOptionsItemSelected (MenuItem item){
         switch (item.getItemId()){
             case R.id.menu_save:
-                saveAndExit(); // This closes the current activity, returning us to the original activity
-                // Toast.makeText(this, "hahaha", Toast.LENGTH_SHORT).show();
+                saveAndExit();
                 return true;
             case R.id.action_settings:
                 Intent intent = new Intent(EditActivity.this, SettingsActivity.class);
@@ -132,9 +112,7 @@ public class EditActivity extends AppCompatActivity implements SharedPreferences
         dialog.show();
     }
 
-    /*ADDING NEW SETTINGS METHODS*/
-
-    private void setTextVisible(boolean display_text) {
+    public static void setTextVisible(boolean display_text) {
         if (display_text == true) {
             visibletxt.setVisibility(View.VISIBLE);
         } else {
@@ -142,7 +120,7 @@ public class EditActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
-    private void changeTextColor(String pref_color_value) {
+    public void changeTextColor(String pref_color_value) {
         Log.d("Notepad", pref_color_value);
         if (pref_color_value.equals("red")) {
             titleB.setTextColor(Color.RED);
@@ -168,7 +146,7 @@ public class EditActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
-    private void changeTextSize(Integer i) {
+    public void changeTextSize(Integer i) {
         titleB.setTextSize(i);
         descB.setTextSize(i);
     }

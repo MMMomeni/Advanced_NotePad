@@ -31,13 +31,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener { //in order to make methods listeners we need
-    //to import these View.OnClickListener, View.OnLongClickListener
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener {
 
-    private final List<Note> noteList = new ArrayList<>(); //we should have this final in order to make changes to noteList in the other parts of code, otherwise
-    //adapter always draws the old list and not the new one
+    private final List<Note> noteList = new ArrayList<>();
     private RecyclerView recyclerView;
-    //private TextView desc;
     private final String TITLEBAR = "Note_Pads";
 
     @Override
@@ -45,9 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
 
         loadFile();
-        setContentView(R.layout.activity_main); //this line also is an inflator
-
-        //updateTitleNoteCount();
+        setContentView(R.layout.activity_main);
         setTitle(TITLEBAR + " (" + noteList.size() + ")");
 
     }
@@ -58,9 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public boolean onCreateOptionsMenu (Menu menu){ //this is the only code we have for menues
-        //the menu we pass here is the actual menu we have made in layout
-        //inflating means to build live objects
+    public boolean onCreateOptionsMenu (Menu menu){
         getMenuInflater().inflate(R.menu.first_menu, menu);
         return true;
     }
@@ -70,15 +63,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onOptionsItemSelected (MenuItem item){
         switch (item.getItemId()){
             case R.id.menu_add:
-                Intent intent = new Intent(this, EditActivity.class); // this is explicit intent
+                Intent intent = new Intent(this, EditActivity.class);
                 startActivityForResult(intent, 1);
-               // Toast.makeText(this, "hahaha", Toast.LENGTH_SHORT).show();
 
                 return true;
             case R.id.menu_about:
-                Intent a = new Intent(this, AboutActivity.class); // this is explicit intent
+                Intent a = new Intent(this, AboutActivity.class);
                 startActivity(a);
-                //Toast.makeText(this, "ohohoh", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
