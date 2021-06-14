@@ -9,14 +9,35 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="368dp"
+        android:layout_height="565dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:background="@android:color/holo_green_dark"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext" />
+
+
+    <EditText
+        android:id="@+id/edittext"
+        android:layout_width="313dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:ems="10"
+        android:foregroundTint="@android:color/darker_gray"
+        android:hint="Enter to Search"
+        android:inputType="textPersonName"
+        android:shadowColor="@color/mr_cast_progressbar_background_light"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/mr_cast_progressbar_background_light"
+        android:textColorHint="@color/white"
+        android:textColorLink="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -73,6 +73,9 @@ public class EditActivity extends AppCompatActivity implements SharedPreferences
 
     @Override
     public boolean onOptionsItemSelected (MenuItem item){
+
+        SoundPlayer.getInstance().start("tap");
+
         switch (item.getItemId()){
             case R.id.menu_save:
                 saveAndExit();

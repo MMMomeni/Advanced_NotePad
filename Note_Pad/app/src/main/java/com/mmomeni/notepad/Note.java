@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 
 import java.util.Date;
 
-public class Note {
+public class Note implements Comparable{
 
     private String title;
     private String description;
@@ -41,5 +41,8 @@ public class Note {
     }
 
 
-
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
 }
