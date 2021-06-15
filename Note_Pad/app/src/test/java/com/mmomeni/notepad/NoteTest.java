@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class NoteTest {
 
     @Test
-    public void addition_isCorrect() {
+    public void noteCreationTest() {
         Date date = new Date();
         Note note = new Note("Title of this note", "Description of this note");
         assertNotNull(note.getLastDate());
