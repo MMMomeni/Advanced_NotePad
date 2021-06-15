@@ -1,0 +1,14 @@
+Project Name,Package Name,Type Name,NOF,NOPF,NOM,NOPM,LOC,WMC,NC,DIT,LCOM,FANIN,FANOUT,File path
+Note_pad,com.mmomeni.notepad,BuildConfig,5,5,0,0,7,0,0,0,-1.0,0,0,C:\Users\CyberG\Desktop\Advanced_NotePad\Note_pad\app\build\generated\source\buildConfig\debug\com\mmomeni\notepad\BuildConfig.java
+Note_pad,com.mmomeni.notepad,ExampleInstrumentedTest,0,0,1,1,10,1,0,0,-1.0,0,0,C:\Users\CyberG\Desktop\Advanced_NotePad\Note_pad\app\src\androidTest\java\com\mmomeni\notepad\ExampleInstrumentedTest.java
+Note_pad,com.mmomeni.notepad,AboutActivity,0,0,1,0,6,1,0,0,-1.0,0,0,C:\Users\CyberG\Desktop\Advanced_NotePad\Note_pad\app\src\main\java\com\mmomeni\notepad\AboutActivity.java
+Note_pad,com.mmomeni.notepad,EditActivity,6,0,14,10,136,26,0,0,0.7142857142857143,0,1,C:\Users\CyberG\Desktop\Advanced_NotePad\Note_pad\app\src\main\java\com\mmomeni\notepad\EditActivity.java
+Note_pad,com.mmomeni.notepad,MainActivity,5,2,19,11,206,34,0,0,0.5263157894736842,0,1,C:\Users\CyberG\Desktop\Advanced_NotePad\Note_pad\app\src\main\java\com\mmomeni\notepad\MainActivity.java
+Note_pad,com.mmomeni.notepad,MyViewHolder,3,0,1,0,11,1,0,0,0.0,0,0,C:\Users\CyberG\Desktop\Advanced_NotePad\Note_pad\app\src\main\java\com\mmomeni\notepad\MyViewHolder.java
+Note_pad,com.mmomeni.notepad,Note,3,0,7,6,28,7,0,0,0.2857142857142857,0,0,C:\Users\CyberG\Desktop\Advanced_NotePad\Note_pad\app\src\main\java\com\mmomeni\notepad\Note.java
+Note_pad,com.mmomeni.notepad,NoteAdapter,3,0,4,3,29,5,0,0,0.0,0,0,C:\Users\CyberG\Desktop\Advanced_NotePad\Note_pad\app\src\main\java\com\mmomeni\notepad\NoteAdapter.java
+Note_pad,com.mmomeni.notepad,SettingsActivity,0,0,3,2,25,6,0,0,-1.0,0,1,C:\Users\CyberG\Desktop\Advanced_NotePad\Note_pad\app\src\main\java\com\mmomeni\notepad\SettingsActivity.java
+Note_pad,com.mmomeni.notepad,SettingsFragment,0,0,1,1,5,1,0,0,-1.0,1,0,C:\Users\CyberG\Desktop\Advanced_NotePad\Note_pad\app\src\main\java\com\mmomeni\notepad\SettingsActivity.java
+Note_pad,com.mmomeni.notepad,SoundPlayer,11,0,6,0,63,14,0,0,0.5,3,1,C:\Users\CyberG\Desktop\Advanced_NotePad\Note_pad\app\src\main\java\com\mmomeni\notepad\SoundPlayer.java
+Note_pad,com.mmomeni.notepad,EditActivityTest,0,0,3,3,8,3,0,0,-1.0,0,0,C:\Users\CyberG\Desktop\Advanced_NotePad\Note_pad\app\src\test\java\com\mmomeni\notepad\EditActivityTest.java
+Note_pad,com.mmomeni.notepad,ToolbarTest,0,0,1,1,9,1,0,0,-1.0,0,0,C:\Users\CyberG\Desktop\Advanced_NotePad\Note_pad\app\src\test\java\com\mmomeni\notepad\ToolbarTest.java

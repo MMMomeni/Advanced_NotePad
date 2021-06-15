@@ -17,11 +17,12 @@
         android:layout_marginEnd="8dp"
         android:background="@android:color/holo_green_light"
         android:ems="10"
-        android:hint="Title"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="Enter a title"
+        tools:ignore="LabelFor" />
 
     <EditText
         android:id="@+id/DescBox"
@@ -35,11 +36,12 @@
         android:breakStrategy="simple"
         android:ems="10"
         android:gravity="start"
-        android:hint="Description"
         android:inputType="textLongMessage|none|textMultiLine"
         android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleBox" />
+        app:layout_constraintTop_toBottomOf="@+id/titleBox"
+        android:autofillHints="Enter a description"
+        tools:ignore="LabelFor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

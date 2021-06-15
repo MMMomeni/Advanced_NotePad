@@ -43,32 +43,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final List<Note> newList = new ArrayList<>();
     private RecyclerView recyclerView;
     private final String TITLEBAR = "Note_Pads";
-
     private EditText edittext;
-    //private Button searchButton;
-
-
-    //private final SearchEngine searchEngine = new SearchEngine();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         edittext =findViewById(R.id.edittext);
-
-
         SoundPlayer.getInstance().setupSound(this, "tap", R.raw.tap_sound, false);
-
         loadFile();
-
         setTitle(TITLEBAR + " (" + noteList.size() + ")");
 
-/*
-        searchButton = findViewById(R.id.searchButton);
-        searchButton.setOnClickListener(v -> doFilter());
-
- */
         edittext.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -86,15 +71,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-
-
     }
 
 
     public void doFilter(String s) {
         if (s.equals("")){
             newList.clear();
-            updateRecycler(null);
+            updateRecycler(noteList);
             return;
         }
         newList.clear();
@@ -103,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 newList.add(n);
             }
         }
-        //Collections.sort(newList);
 
         updateRecycler(newList);
     }
@@ -128,19 +110,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected (MenuItem item){
         SoundPlayer.getInstance().start("tap");
-        switch (item.getItemId()){
-            case R.id.menu_add:
-                Intent intent = new Intent(this, EditActivity.class);
-                startActivityForResult(intent, 1);
 
-                return true;
-            case R.id.menu_about:
-                Intent a = new Intent(this, AboutActivity.class);
-                startActivity(a);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menu_add){
+            Intent intent = new Intent(this, EditActivity.class);
+            startActivityForResult(intent, 1);
+            return true;
         }
+
+        else if (item.getItemId() == R.id.menu_about){
+            Intent a = new Intent(this, AboutActivity.class);
+            startActivity(a);
+            return true;
+        }
+
+        else
+            return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -157,32 +141,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else {
 
-                    //Toast.makeText(this, text1, Toast.LENGTH_SHORT).show();
                     noteList.add(0, new Note(text1, text2));
-                    //updateRecycler();
-                    recyclerView = findViewById(R.id.recycler);
-                    NoteAdapter vh = new NoteAdapter(noteList, this);
-                    recyclerView.setAdapter(vh);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(this));
-                    updateTitleNoteCount();
+                    if (!newList.isEmpty())
+                        updateRecycler(newList);
+                    else
+                        updateRecycler(noteList);
+
                 }
 
                 }
             }
     }
 
-    public void updateRecycler(List<Note> newList){
-        if (newList != null){
-            recyclerView = findViewById(R.id.recycler);
-            NoteAdapter vh = new NoteAdapter(newList, this);
-            recyclerView.setAdapter(vh);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            updateTitleNoteCount();
-            return;
-        }
+    public void updateRecycler(List<Note> list){
 
         recyclerView = findViewById(R.id.recycler);
-        NoteAdapter vh = new NoteAdapter(noteList, this);
+        NoteAdapter vh = new NoteAdapter(list, this);
         recyclerView.setAdapter(vh);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         updateTitleNoteCount();
@@ -205,7 +179,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String text1 = m.getTitle();
             String text2 = m.getDesc();
             noteList.remove(pos);
-            //Toast.makeText(v.getContext(), "SHORT " + m.toString(), Toast.LENGTH_SHORT).show();
             Intent data = new Intent(this, EditActivity.class); // this is explicit intent
             data.putExtra("title", text1);
             data.putExtra("description", text2);
@@ -218,17 +191,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String text1 = m.getTitle();
             String text2 = m.getDesc();
             noteList.remove(pos);
-            //Toast.makeText(v.getContext(), "SHORT " + m.toString(), Toast.LENGTH_SHORT).show();
             Intent data = new Intent(this, EditActivity.class); // this is explicit intent
             data.putExtra("title", text1);
             data.putExtra("description", text2);
             startActivityForResult(data, 1);
         }
 
-
-
-        //EditActivity mn = new EditActivity();
-       // mn(text1,text2);
 
     }
 
@@ -240,24 +208,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete Data");
         builder.setMessage("Do you want to delete this data?");
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
+        builder.setNegativeButton("No", (dialog, id) -> {
 
-            }
         });
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                int pos = recyclerView.getChildLayoutPosition(v);
-                noteList.remove(pos);
-                //updateRecycler();
+        builder.setPositiveButton("Yes", (dialog, id) -> {
+            int pos = recyclerView.getChildLayoutPosition(v);
+            noteList.remove(pos);
+            if (!newList.isEmpty())
+                updateRecycler(newList);
+            else
+                updateRecycler(noteList);
 
-            }
         });
 
         AlertDialog dialog = builder.create();
         dialog.show();
-
-        //Toast.makeText(v.getContext(), "LONG " + m.toString(), Toast.LENGTH_SHORT).show();
         return true;
     }
 
@@ -270,18 +235,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
 
-        //updateRecycler();
-        recyclerView = findViewById(R.id.recycler);
-        NoteAdapter vh = new NoteAdapter(noteList, this);
-        recyclerView.setAdapter(vh);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        updateTitleNoteCount();
+        updateRecycler(noteList);
 
         super.onResume();
     }
 
     public void saveFile() {
-       // Log.d(TAG, "saveFile: ");
 
         try {
             FileOutputStream fos = getApplicationContext().
@@ -301,7 +260,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             writer.close();
         } catch (Exception e) {
             e.printStackTrace();
-            //Log.d(TAG, "writeJSONData: " + e.getMessage());
         }
 
 
@@ -315,17 +273,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             int loaded = fis.read(data);
             fis.close();
             String json = new String(data);
-            //Create JSON arrah form string file content
             JSONArray noteArr = new JSONArray(json);
             for (int i = 0; i < noteArr.length(); i++){
                 JSONObject nObj = noteArr.getJSONObject(i);
 
-                // Access note data fields
                 String title = nObj.getString("title");
                 String text = nObj.getString("description");
                 String dateMS = nObj.getString("date");
 
-                //create Note and add to ArrayList
                 Note n = new Note(title, text);
                 n.setLastDate(convertStringToDate(dateMS));
                 noteList.add(n);
@@ -337,7 +292,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private Date convertStringToDate(String timeStamp){
-        //Log.d(TAG, "convertStringToDate: ");
         try{
             if(timeStamp != null){
                 SimpleDateFormat sdf = (SimpleDateFormat) DateFormat.getDateTimeInstance();
@@ -351,7 +305,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private String convertDateToString(Date timeStamp){
-        //Log.d(TAG, "convertDateToString: ");
         try{
             if(timeStamp != null){
                 SimpleDateFormat sdf = (SimpleDateFormat) DateFormat.getDateTimeInstance();

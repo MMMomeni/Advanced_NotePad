@@ -64,9 +64,7 @@ public class EditActivity extends AppCompatActivity implements SharedPreferences
     }
 
     @Override
-    public boolean onCreateOptionsMenu (Menu menu){ //this is the only code we have for menues
-        //the menu we pass here is the actual menu we have made in layout
-        //inflating means to build live objects
+    public boolean onCreateOptionsMenu (Menu menu){
         getMenuInflater().inflate(R.menu.second_menu, menu);
         return true;
     }
