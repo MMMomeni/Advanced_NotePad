@@ -1,0 +1,27 @@
+package com.mmomeni.notepad;
+
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.test.filters.MediumTest;
+import androidx.test.rule.ActivityTestRule;
+import static org.junit.Assert.assertNotEquals;
+
+@MediumTest
+@RunWith(JUnit4.class)
+public class EditActivityTest {
+
+    @Rule
+    public ActivityTestRule<MainActivity> rule  = new  ActivityTestRule<>(MainActivity.class);
+
+    @Test
+    public void componentCheckInEditActivity() throws Exception {
+        MainActivity activity = rule.getActivity();
+        RecyclerView recyclerView = activity.findViewById(R.id.recycler);
+        assertNotEquals(recyclerView, null);
+
+    }
+
+}
